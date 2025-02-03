@@ -267,7 +267,7 @@ export class PuppeteerControl extends AsyncService {
         this.browser = await puppeteer.launch({
             args: args,
             timeout: 10_000,
-            browserWSEndpoint: 'ws://browser:13001',
+            browserWSEndpoint: 'ws://browser:3000',
         }).catch((err: any) => {
             this.logger.error(`Unknown firebase issue, just die fast.`, { err });
             process.nextTick(() => {
