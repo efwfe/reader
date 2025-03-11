@@ -263,9 +263,9 @@ export class PuppeteerControl extends AsyncService {
             '--single-process', 
             '--headless'
         ];
-
+	const puppeteerWs = process.env.BROWSERLESS;
         this.browser = await puppeteer.connect({
-            browserWSEndpoint: 'ws://browser:3000',
+            browserWSEndpoint: puppeteerWs,
         }).catch((err: any) => {
             this.logger.error(`Unknown firebase issue, just die fast.`, { err });
             process.nextTick(() => {
